@@ -43,7 +43,7 @@ public class Main {
         scanner.nextLine();
 
         Arts.clearScreen();
-        GU.printWithDelay("\t\t\t\tшкибиди доп доп доп ес ес",250);
+        GU.printWithDelay("\t\t\t\tшкибиди доп доп доп ес ес",200);
         waitForInput(scanner);
 
         // Пример с выбором действия
