@@ -1,8 +1,13 @@
+import java.io.IOException;
 import java.util.Scanner;
 
 public class Main {
+    public static final String RED = "\u001B[31m";
+    public static final String GREEN = "\u001B[32m";
+    public static final String RESET = "\u001B[0m";
 
-    public static void main(String[] args) throws InterruptedException {
+
+    public static void main(String[] args) throws InterruptedException, IOException {
         Scanner scanner = new Scanner(System.in);
 
 
@@ -32,22 +37,22 @@ public class Main {
         System.out.println("\n\ngame by JtB4liv3\n\tfck u<3");
 
         //анимация
-        Arts.displayArt(Arts.ART_LINES1);
+        GU.displayArt(Arts.ART_LINES1);
         GU.sleep(500);
-        Arts.displayArt(Arts.ART_LINES2);
+        GU.displayArt(Arts.ART_LINES2);
         GU.sleep(500);
-        Arts.displayArt(Arts.ART_LINES3);
+        GU.displayColorArt(Arts.ART_LINES3,RED);
         GU.sleep(500);
-        Arts.displayArt(Arts.ART_LINES4);
+        GU.displayArt(Arts.ART_LINES4);
         GU.sleep(500);
         scanner.nextLine();
 
-        Arts.clearScreen();
+        GU.clearScreen();
         GU.printWithDelay("\t\t\t\tшкибиди доп доп доп ес ес",200);
-        waitForInput(scanner);
+        GU.waitForInput(scanner);
 
         // Пример с выбором действия
-        Arts.clearScreen();
+        GU.clearScreen();
         System.out.println("\nЧто будете делать?");
         System.out.println("1. Осмотреться вокруг");
         System.out.println("2. Проверить инвентарь");
@@ -57,29 +62,24 @@ public class Main {
         handleChoice(choice);
     }
 
-    private static void waitForInput(Scanner scanner) {
-        System.out.println("\n                                                      - Enter чтобы продолжить -");
-        scanner.nextLine();
-    }
-
-    private static void handleChoice(String choice) {
-        Arts.clearScreen();
+    private static void handleChoice(String choice) throws IOException, InterruptedException {
+        GU.clearScreen();
 
         switch (choice) {
             case "1":
-                Arts.displayArt(Arts.ART_LINES2);
+                GU.displayArt(Arts.ART_LINES2);
                 System.out.println("\n🔍 Вы внимательно осматриваете местность...");
                 break;
             case "2":
-                Arts.displayArt(Arts.ART_LINES3);
+                GU.displayArt(Arts.ART_LINES3);
                 System.out.println("\n🎒 В инвентаре: карта, фляга, амулет");
                 break;
             case "3":
-                Arts.displayArt(Arts.ART_LINES1);
+                GU.displayArt(Arts.ART_LINES1);
                 System.out.println("\n🌀 Портал исчез... возврата нет!");
                 break;
             default:
-                Arts.displayArt(Arts.ART_LINES4);
+                GU.displayArt(Arts.ART_LINES4);
                 System.out.println("\n❓ Непонятный выбор...");
         }
     }

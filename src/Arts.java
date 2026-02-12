@@ -190,17 +190,5 @@ public class Arts {
             "                                   :--.--:--=:                                   "
     };
 
-    // Метод для отображения рисунка
-    public static void displayArt(String[] art) {
-        for (String line : art) {
-            System.out.println(line);
-        }
-    }
 
-    // Метод для очистки экрана
-    public static void clearScreen() {
-        for (int i = 0; i < 30; i++) {
-            System.out.println();
-        }
-    }
 }
