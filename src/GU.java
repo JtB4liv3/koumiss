@@ -29,6 +29,11 @@ public class GU {
         System.out.println();
     }
 
+    public static void say(String name, String text){
+        System.out.println("\n\n\t\t\t"+name+":");
+        printWithDelay("\t— "+text,200);
+    }
+
     public static void waitForInput(Scanner scanner) {
         System.out.println("\n                                                      - Enter чтобы продолжить -");
         scanner.nextLine();
