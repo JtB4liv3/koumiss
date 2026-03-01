@@ -10,70 +10,36 @@ public class Main {
     public static void main(String[] args) throws InterruptedException, IOException {
         Scanner scanner = new Scanner(System.in);
 
-
-        /*
-        Arts.clearScreen(); - очистить экран
-        Arts.displayArt(Arts.НазваниеРисунка); - отобразить рисунок
-        waitForInput(scanner); - ждать нажатия + сообщение
-        GU.sleep(миллисекунды); - ждать время
-        scanner.nextLine(); - тоже ждать нажатия хз
-        GU.printWithDelay(текст, мс);
-        */ //функции
-
-
-        //тест
-
         //TIP ХОД ИГРЫ
 
         GU.displayArt(Arts.WARNING_ART);
         scanner.nextLine();
 
-        //анимация
+        GU.clearScreen();
         GU.displayArt(Arts.ART_LINES1);
         GU.sleep(300);
+        GU.clearScreen();
         GU.displayArt(Arts.ART_LINES2);
         GU.sleep(300);
+        GU.clearScreen();
         GU.displayColorArt(Arts.ART_LINES3,RED);
         GU.sleep(300);
+        GU.clearScreen();
         GU.displayArt(Arts.ART_LINES4);
         GU.sleep(300);
         scanner.nextLine();
 
         GU.clearScreen();
         GU.displayArt(Arts.ART_LINES5);
-        GU.say("Пизда бобра","Шкибиди доп доп доп ес ес.");
+        GU.say("Имя","Фраза.");
         GU.waitForInput(scanner);
 
         // Пример с выбором действия
         GU.clearScreen();
-        System.out.println("\nЧто будете делать?");
-        System.out.println("1. Осмотреться вокруг");
-        System.out.println("2. Проверить инвентарь");
-        System.out.println("3. Попробовать вернуться");
 
-        String choice = scanner.nextLine();
-        handleChoice(choice);
+        System.out.println(GU.colorChoise4(Arts.ART_LINES5,"сиси","сисечки","сисюлики","сисюндрики"));
+
+        //String choice = scanner.nextLine();
     }
 
-    private static void handleChoice(String choice) throws IOException, InterruptedException {
-        GU.clearScreen();
-
-        switch (choice) {
-            case "1":
-                GU.displayArt(Arts.ART_LINES2);
-                System.out.println("\n🔍 Вы внимательно осматриваете местность...");
-                break;
-            case "2":
-                GU.displayArt(Arts.ART_LINES3);
-                System.out.println("\n🎒 В инвентаре: карта, фляга, амулет");
-                break;
-            case "3":
-                GU.displayArt(Arts.ART_LINES1);
-                System.out.println("\n🌀 Портал исчез... возврата нет!");
-                break;
-            default:
-                GU.displayArt(Arts.ART_LINES4);
-                System.out.println("\n❓ Непонятный выбор...");
-        }
-    }
 }

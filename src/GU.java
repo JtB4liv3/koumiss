@@ -12,6 +12,55 @@ public class GU {
     *  анимации вывода текста
     *  определить размеры экрана*/ //цели
 
+    public static int colorChoise4(String[] art, String ch1, String ch2, String ch3, String ch4) throws IOException, InterruptedException {
+        //хотел крч стрелочки организовать
+
+        Scanner scanner = new Scanner(System.in);
+        String pisun;
+        while (true){
+            //выводим арт, подсвечиваем выбор, ждем ввода, повторяем
+            while(true){
+                clearScreen();
+                displayArt(art);
+                System.out.println("\nx \u001B[31m"+ch1+"\u001B[0m"
+                        +"\n- "+ch2
+                        +"\n- "+ch3
+                        +"\n- "+ch4);
+                pisun=scanner.nextLine();
+                if(pisun.equals(""));
+                else if (pisun.equals(" "))return 1;
+                clearScreen();
+                displayArt(art);
+                System.out.println("\n- "+ch1
+                        +"\nx \u001B[31m"+ch2+"\u001B[0m"
+                        +"\n- "+ch3
+                        +"\n- "+ch4);
+                pisun=scanner.nextLine();
+                if(pisun.equals(""));
+                else if (pisun.equals(" "))return 2;
+                clearScreen();
+                displayArt(art);
+                System.out.println("\n- "+ch1
+                        +"\n- "+ch2
+                        +"\nx \u001B[31m"+ch3+"\u001B[0m"
+                        +"\n- "+ch4);
+                pisun=scanner.nextLine();
+                if(pisun.equals(""));
+                else if (pisun.equals(" "))return 3;
+                clearScreen();
+                displayArt(art);
+                System.out.println("\n- "+ch1
+                        +"\n- "+ch2
+                        +"\n- "+ch3
+                        +"\nx \u001B[31m"+ch4+"\u001B[0m");
+                pisun=scanner.nextLine();
+                if(pisun.equals(""));
+                else if (pisun.equals(" "))return 4;
+            }
+
+        }
+    }
+
     public static void sleep(int milliseconds) {
         try {
             Thread.sleep(milliseconds);
