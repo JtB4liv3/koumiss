@@ -12,6 +12,7 @@ public class Main {
 
         //TIP ХОД ИГРЫ
 
+        GU.clearScreen();
         GU.displayArt(Arts.WARNING_ART);
         scanner.nextLine();
 
@@ -31,7 +32,8 @@ public class Main {
 
         //menu
         while(true){
-            int menu = GU.colorChoise4(Arts.ART_LINES5,"Продолжить","Начать","Настройки","Компьютерное соси");
+            String[] optmenu = {"Продолжить","Начать","Настройки","Компьютерное соси"};
+            int menu = GU.colorChoise4(Arts.ART_LINES5,optmenu);
             if (menu==2) break;
             else {
                 GU.clearScreen();
@@ -66,7 +68,8 @@ public class Main {
         // Пример с выбором действия
         GU.clearScreen();
 
-        System.out.println(GU.colorChoise4(Arts.ART_LINES5,"сиси","сисечки","сисюлики","сисюндрики"));
+        String[] optmenu = {"Сиси","Сисюлики","Писи","Писюлики"};
+        int menu = GU.colorChoise4(Arts.ART_LINES5,optmenu);
     }
 
 }

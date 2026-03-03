@@ -5,8 +5,7 @@ setlocal enabledelayedexpansion
 REM Укажите путь к папке назначения
 set "target_path=C:\Users\jtb49\IdeaProjects\koumiss"
 REM Укажите путь к исходной папке
-set "source_path=C:\Users\jtb49\
-IdeaProjects\koumiss\out\artifacts\ascii_game_demo_jar"
+set "source_path=C:\Users\jtb49\IdeaProjects\koumiss\out\artifacts\ascii_game_demo_jar"
 REM Укажите имя файла для проверки
 set "file_name=ascii_game_demo.jar"
 

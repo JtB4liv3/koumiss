@@ -11,52 +11,36 @@ public class GU {
     *  анимации вывода текста
     *  определить размеры экрана*/ //цели
 
-    public static int colorChoise4(String[] art, String ch1, String ch2, String ch3, String ch4) throws IOException, InterruptedException {
-        //хотел крч стрелочки организовать
-
+    public static int colorChoise4(String[] art, String[] choices) throws IOException, InterruptedException {
         Scanner scanner = new Scanner(System.in);
-        String pisun;
-        while (true){
-            //выводим арт, подсвечиваем выбор, ждем ввода, повторяем
-            while(true){
-                clearScreen();
-                displayArt(art);
-                System.out.println("\nx \u001B[31m"+ch1+"\u001B[0m"
-                        +"\n- "+ch2
-                        +"\n- "+ch3
-                        +"\n- "+ch4);
-                pisun=scanner.nextLine();
-                if(pisun.equals(""));
-                else if (pisun.equals(" "))return 1;
-                clearScreen();
-                displayArt(art);
-                System.out.println("\n- "+ch1
-                        +"\nx \u001B[31m"+ch2+"\u001B[0m"
-                        +"\n- "+ch3
-                        +"\n- "+ch4);
-                pisun=scanner.nextLine();
-                if(pisun.equals(""));
-                else if (pisun.equals(" "))return 2;
-                clearScreen();
-                displayArt(art);
-                System.out.println("\n- "+ch1
-                        +"\n- "+ch2
-                        +"\nx \u001B[31m"+ch3+"\u001B[0m"
-                        +"\n- "+ch4);
-                pisun=scanner.nextLine();
-                if(pisun.equals(""));
-                else if (pisun.equals(" "))return 3;
-                clearScreen();
-                displayArt(art);
-                System.out.println("\n- "+ch1
-                        +"\n- "+ch2
-                        +"\n- "+ch3
-                        +"\nx \u001B[31m"+ch4+"\u001B[0m");
-                pisun=scanner.nextLine();
-                if(pisun.equals(""));
-                else if (pisun.equals(" "))return 4;
+        int selected = 0;  // Индекс выбранного варианта
+
+        while (true) {
+            // Очищаем экран и показываем арт
+            clearScreen();
+            displayArt(art);
+
+            // Выводим все варианты с подсветкой текущего
+            for (int i = 0; i < choices.length; i++) {
+                if (i == selected) {
+                    System.out.println("x \u001B[31m" + choices[i] + "\u001B[0m");
+                } else {
+                    System.out.println("- " + choices[i]);
+                }
             }
 
+            // Ждем ввод
+            String input = scanner.nextLine();
+
+            if (input.equals("")) {
+                // Enter - листаем вперед
+                selected = (selected + 1) % choices.length;
+            }
+            else if (input.equals(" ")) {
+                // Пробел - подтверждаем выбор
+                return selected + 1; // Возвращаем 1..N
+            }
+            // Любой другой ввод игнорируем
         }
     }
 
