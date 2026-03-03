@@ -8,7 +8,6 @@ public class GU {
     /*todo:
     *  центрирование текста
     *  текст с рамочкой
-    *  цветные рисунки, окрашенные элементы GUI и тд
     *  анимации вывода текста
     *  определить размеры экрана*/ //цели
 
@@ -61,6 +60,30 @@ public class GU {
         }
     }
 
+    public static int colorChoise2(/*String[] art, */String ch1, String ch2) throws IOException, InterruptedException{
+        Scanner scanner = new Scanner(System.in);
+        String pisun;
+        while (true){
+            //выводим арт, подсвечиваем выбор, ждем ввода, повторяем
+            while(true) {
+                clearScreen();
+                //displayArt(art);
+                System.out.println("\nx \u001B[31m" + ch1 + "\u001B[0m"
+                        + "\n- " + ch2);
+                pisun = scanner.nextLine();
+                if (pisun.equals("")) ;
+                else if (pisun.equals(" ")) return 1;
+                clearScreen();
+                //displayArt(art);
+                System.out.println("\n- " + ch1
+                        + "\nx \u001B[31m" + ch2 + "\u001B[0m");
+                pisun = scanner.nextLine();
+                if (pisun.equals("")) ;
+                else if (pisun.equals(" ")) return 2;
+            }
+        }
+    }
+
     public static void sleep(int milliseconds) {
         try {
             Thread.sleep(milliseconds);
@@ -80,7 +103,7 @@ public class GU {
 
     public static void say(String name, String text){
         System.out.println("\n\n\t\t\t"+name+":");
-        printWithDelay("\t— "+text,200);
+        printWithDelay("\t- "+text+".",150);
     }
 
     public static void waitForInput(Scanner scanner) {
@@ -109,5 +132,12 @@ public class GU {
         /*System.out.print("\033[H\033[2J");
         System.out.flush();*/
         new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
+    }
+
+    public static void save(){
+
+    }
+    public static void load(){
+
     }
 }
