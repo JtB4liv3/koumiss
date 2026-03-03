@@ -32,13 +32,13 @@ public class Main {
 
         //menu
         while(true){
-            String[] optmenu = {"Продолжить","Начать","Настройки","Компьютерное соси"};
-            int menu = GU.colorChoise4(Arts.ART_LINES5,optmenu);
+            String[] optmenu = {"Продолжить","Начать","Настройки","Компьютерное оси"};
+            int menu = GU.colorChoise4(Arts.ART_LINES5,optmenu,true);
             if (menu==2) break;
             else {
                 GU.clearScreen();
-                GU.say("","Coming soon соси писун");
-                GU.waitForInput(scanner);
+                GU.say("","Coming soon оси исун");
+                GU.waitForInput();
 
             }
 
@@ -59,17 +59,38 @@ public class Main {
 
     public static void startBranch1() throws IOException, InterruptedException {
         Scanner scanner = new Scanner(System.in);
+//GU.text("",100);
+        GU.clearScreen();
+        GU.displayArt(Arts.ART_LINES0);
+        GU.text("<< Однажды мужчина заключил с демоном сделку. \nОтдав половину уготованной ему жизни, он обрел дар слова.",100);
+        GU.waitForInput();
+        GU.clearScreen();
+        GU.displayArt(Arts.ART_LINES0);
+        GU.text("Текст из-под его пера запылал ярким пламенем гения. Слова собирались в сочные,\nвкусные фразы, а созданные его рукой декорации на бумаге превращались в завора-\nживающие локации. Сюжетные повороты захватывали дух.",100);
+        GU.waitForInput();
+        GU.clearScreen();
+        GU.displayArt(Arts.ART_LINES0);
+        GU.text("Творец писал, и миры его книг жили в сердцах многих людей.\n" +
+                "" +
+                "Жил он недолго, но на смертном одре писатель был счастлив, потому что у своего\nложа увидел талантливого художника и даровитого флейтиста - своих сыновей.",100);
+        GU.waitForInput();
+        GU.clearScreen();
+        GU.displayArt(Arts.ART_LINES0);
+        GU.text("Тем же теплым августовским вечером "+RED+"демон вынул душу из изуродованного проклятьем\nтела и пожрал ее, голодными глазами глядя на отпрысков мастера. >>"+RESET,100);
+
+        GU.waitForInput();
+
 
         GU.clearScreen();
         GU.displayArt(Arts.ART_LINES5);
         GU.say("Имя","Фраза");
-        GU.waitForInput(scanner);
+        GU.waitForInput();
 
         // Пример с выбором действия
         GU.clearScreen();
 
         String[] optmenu = {"Сиси","Сисюлики","Писи","Писюлики"};
-        int menu = GU.colorChoise4(Arts.ART_LINES5,optmenu);
+        int menu = GU.colorChoise4(Arts.ART_LINES5,optmenu,false);
     }
 
 }

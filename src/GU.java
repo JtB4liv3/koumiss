@@ -11,7 +11,7 @@ public class GU {
     *  анимации вывода текста
     *  определить размеры экрана*/ //цели
 
-    public static int colorChoise4(String[] art, String[] choices) throws IOException, InterruptedException {
+    public static int colorChoise4(String[] art, String[] choices,boolean help) throws IOException, InterruptedException {
         Scanner scanner = new Scanner(System.in);
         int selected = 0;  // Индекс выбранного варианта
 
@@ -19,7 +19,7 @@ public class GU {
             // Очищаем экран и показываем арт
             clearScreen();
             displayArt(art);
-
+            System.out.println();
             // Выводим все варианты с подсветкой текущего
             for (int i = 0; i < choices.length; i++) {
                 if (i == selected) {
@@ -28,7 +28,7 @@ public class GU {
                     System.out.println("- " + choices[i]);
                 }
             }
-
+            if(help==true)System.out.println("\nДальше [enter] / Выбор [spase + enter]");
             // Ждем ввод
             String input = scanner.nextLine();
 
@@ -41,30 +41,6 @@ public class GU {
                 return selected + 1; // Возвращаем 1..N
             }
             // Любой другой ввод игнорируем
-        }
-    }
-
-    public static int colorChoise2(/*String[] art, */String ch1, String ch2) throws IOException, InterruptedException{
-        Scanner scanner = new Scanner(System.in);
-        String pisun;
-        while (true){
-            //выводим арт, подсвечиваем выбор, ждем ввода, повторяем
-            while(true) {
-                clearScreen();
-                //displayArt(art);
-                System.out.println("\nx \u001B[31m" + ch1 + "\u001B[0m"
-                        + "\n- " + ch2);
-                pisun = scanner.nextLine();
-                if (pisun.equals("")) ;
-                else if (pisun.equals(" ")) return 1;
-                clearScreen();
-                //displayArt(art);
-                System.out.println("\n- " + ch1
-                        + "\nx \u001B[31m" + ch2 + "\u001B[0m");
-                pisun = scanner.nextLine();
-                if (pisun.equals("")) ;
-                else if (pisun.equals(" ")) return 2;
-            }
         }
     }
 
@@ -90,7 +66,24 @@ public class GU {
         printWithDelay("\t- "+text+".",150);
     }
 
-    public static void waitForInput(Scanner scanner) {
+    public static void text(String text, int delay){
+        /*int count = 0;*/
+        System.out.println();
+        for(char c : text.toCharArray()){
+            System.out.print(c);
+            System.out.flush();
+            sleep(delay);
+            //count++;
+            /*if(count==80){
+                System.out.print("\n");
+                count=0;
+            }*/
+        }
+
+    }
+
+    public static void waitForInput() {
+        Scanner scanner = new Scanner(System.in);
         System.out.println("\n                                                      - Enter чтобы продолжить -");
         scanner.nextLine();
     }
