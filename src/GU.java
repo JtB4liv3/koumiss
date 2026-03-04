@@ -2,7 +2,7 @@ import java.io.IOException;
 import java.util.Scanner;
 
 public class GU {
-
+    public static int textspeed=2;
     public static final String RESET = "\u001B[0m";
 
     /*todo:
@@ -11,14 +11,14 @@ public class GU {
     *  анимации вывода текста
     *  определить размеры экрана*/ //цели
 
-    public static int colorChoise4(String[] art, String[] choices,boolean help) throws IOException, InterruptedException {
+    public static int colorChoise4(/*String[] art, */String[] choices,boolean help) throws IOException, InterruptedException {
         Scanner scanner = new Scanner(System.in);
         int selected = 0;  // Индекс выбранного варианта
 
         while (true) {
             // Очищаем экран и показываем арт
             clearScreen();
-            displayArt(art);
+            //displayArt(art);
             System.out.println();
             // Выводим все варианты с подсветкой текущего
             for (int i = 0; i < choices.length; i++) {
@@ -52,27 +52,27 @@ public class GU {
         }
     }
 
-    public static void printWithDelay(String text, int delay) {
+    public static void printWithDelay(String text) {
         for (char c : text.toCharArray()) {
             System.out.print(c);
             System.out.flush();
-            sleep(delay);
+            sleep(textspeed*50);
         }
         System.out.println();
     }
 
     public static void say(String name, String text){
         System.out.println("\n\n\t\t\t"+name+":");
-        printWithDelay("\t- "+text+".",150);
+        printWithDelay("\t- "+text+".");
     }
 
-    public static void text(String text, int delay){
+    public static void text(String text){
         /*int count = 0;*/
         System.out.println();
         for(char c : text.toCharArray()){
             System.out.print(c);
             System.out.flush();
-            sleep(delay);
+            sleep(textspeed*50);
             //count++;
             /*if(count==80){
                 System.out.print("\n");
