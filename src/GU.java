@@ -111,6 +111,12 @@ public class GU {
         new ProcessBuilder("cmd", "/c", "cls").inheritIO().start().waitFor();
     }
 
+    public static void comingsoon() throws IOException, InterruptedException {
+        GU.clearScreen();
+        GU.say("","Coming soon оси исун");
+        GU.waitForInput();
+    }
+
     public static void save(){
 
     }
