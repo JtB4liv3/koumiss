@@ -77,7 +77,7 @@ public class Main {
                     break;
                 case 4:
                     settings=false;
-                    openmenu();
+                    //openmenu();
                     break;
             }
         }
